@@ -1,7 +1,9 @@
+#welcome message to the wonderful app
+print("Welcome to the tip calculator.")
 # Prompt user for total bill, tip percentage, and number of people
-total_bill = float(input("What is the total bill? $"))
-tip_percent = float(input("What percentage tip would you like to leave? (10%, 12%, or 15%) "))
-num_people = int(input("How many people are splitting the bill? "))
+total_bill = float(input("What was the total bill? $"))
+tip_percent = float(input("What percentage tip would you like to give? (10%, 12%, or 15%) "))
+num_people = int(input("How many people to split the bill? "))
 
 # Calculate tip amount and total amount
 if tip_percent == 10:
