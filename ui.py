@@ -49,6 +49,8 @@ class QuizInterface:
         else:
             self.canvas.config(bg=NUDE)
             self.canvas.itemconfig(self.question_text, text=f"You've reached the end of the quiz\nFinal score: {self.quiz.score}/{self.quiz.question_number}")
+            self.true_button.config(state="disabled")
+            self.false_button.config(state="disabled")
 
     def check_answer_for_false_and_get_score(self):
         self.give_feedback(is_true = self.quiz.check_answer("False"))
