@@ -1,7 +1,6 @@
 import requests
 import json
 import os
-
 def get_crypto_current_price():
     url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
 
@@ -12,11 +11,12 @@ def get_crypto_current_price():
 
     headers = {
     'Accepts': 'application/json',
-    'X-CMC_PRO_API_KEY': 'CMC_API',
+    'X-CMC_PRO_API_KEY': os.environ['CMC_API'],
     }
 
     response = requests.get(url, headers=headers, params=crypto_parameters)
     data = response.json()
+    print(data)
     current_btc_price = data['data']['BTC']['quote']['USD']['price']
 
     return current_btc_price
@@ -33,11 +33,12 @@ def get_crypto_price_change():
 
     headers = {
     'Accepts': 'application/json',
-    'X-CMC_PRO_API_KEY': 'CMC_API',
+    'X-CMC_PRO_API_KEY': os.environ['CMC_API'],
     }
 
-    response = requests.get(url, headers=headers, params=crypto_parameters)
+    response = requests.get(url=url, headers=headers, params=crypto_parameters)
     data = response.json()
+    print(data)
     price_change_percentage_24h = data['data']['BTC']['quote']['USD']['percent_change_24h']
 
     if price_change_percentage_24h >= 2:
@@ -47,13 +48,14 @@ def get_crypto_price_change():
 
 
 top_news_list = []
+
 def get_crypto_news():
     global top_news_list
     # Set up the API endpoint URL
     url = "https://cryptopanic.com/api/v1/posts/"
     
     crypto_parameters = {
-        "auth_token": "CRYPTO_NEWS_API",
+        "auth_token": os.environ['CRYPTO_NEWS_API'],
         "currencies": "BTC",
         "filter": "important",
     }
@@ -62,7 +64,7 @@ def get_crypto_news():
     "Accepts": "application/json"
     }
     # Make an HTTP request to the API endpoint
-    response = requests.get(url, headers=headers, params=crypto_parameters)
+    response = requests.get(url=url, headers=headers, params=crypto_parameters)
     # Parse the JSON response
     data = json.loads(response.text)
 
