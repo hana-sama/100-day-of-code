@@ -1,5 +1,12 @@
 import requests
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+load_dotenv(verbose=True)
 
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+RAPID_API_KEY = os.environ.get("RAPID_API_KEY")
 url = "https://newsnow.p.rapidapi.com/"
 
 payload = {
@@ -9,10 +16,10 @@ payload = {
 }
 headers = {
 	"content-type": "application/json",
-	"X-RapidAPI-Key": "a4c97e0b9cmsh607eb19dad8854cp175929jsnbd0edb3d64c3",
+	"X-RapidAPI-Key": RAPID_API_KEY,
 	"X-RapidAPI-Host": "newsnow.p.rapidapi.com"
 }
 
 response = requests.post(url, json=payload, headers=headers)
-
-print(response.json())
+articles = response.json()
+top_ten_articles = articles['articles'][0:10]
