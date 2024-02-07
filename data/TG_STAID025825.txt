@@ -1,0 +1,55 @@
+EUROPEAN CLIMATE ASSESSMENT & DATASET (ECA&D), file created on: 16-11-2022
+THESE DATA CAN BE USED FOR NON-COMMERCIAL RESEARCH AND EDUCATION PROVIDED THAT THE FOLLOWING SOURCE IS ACKNOWLEDGED: 
+
+Klein Tank, A.M.G. and Coauthors, 2002. Daily dataset of 20th-century surface
+air temperature and precipitation series for the European Climate Assessment.
+Int. J. of Climatol., 22, 1441-1453.
+Data and metadata available at http://www.ecad.eu
+
+FILE FORMAT (MISSING VALUE CODE = -9999):
+
+01-06 STAID: Station identifier
+08-13 SOUID: Source identifier
+15-22 DATE : Date YYYYMMDD
+24-28 TG   : Mean temperature in 0.1 &#176;C
+30-34 Q_TG : quality code for TG (0='valid'; 1='suspect'; 9='missing')
+
+This is the blended series of station RAGNAROKK, NORWAY (STAID: 25825)
+Blended and updated with sources:150183 
+See files sources.txt and stations.txt for more info.
+
+STAID, SOUID,    DATE,   TG, Q_TG
+ 25825,150183,20220928,   46,    0
+ 25825,150183,20220929,   44,    0
+ 25825,150183,20220930,   10,    0
+ 25825,150183,20221001,   12,    0
+ 25825,150183,20221002,   16,    0
+ 25825,150183,20221003,   22,    0
+ 25825,150183,20221004,   26,    0
+ 25825,150183,20221005,   29,    0
+ 25825,150183,20221006,   41,    0
+ 25825,150183,20221007,   42,    0
+ 25825,150183,20221008,   28,    0
+ 25825,150183,20221009,   23,    0
+ 25825,150183,20221010,   24,    0
+ 25825,150183,20221011,   49,    0
+ 25825,150183,20221012,   35,    0
+ 25825,150183,20221013,    4,    0
+ 25825,150183,20221014,    5,    0
+ 25825,150183,20221015,    6,    0
+ 25825,150183,20221016,   41,    0
+ 25825,150183,20221017,   30,    0
+ 25825,150183,20221018,    6,    0
+ 25825,150183,20221019,   -5,    0
+ 25825,150183,20221020,  -28,    0
+ 25825,150183,20221021,  -37,    0
+ 25825,150183,20221022,  -14,    0
+ 25825,150183,20221023,  -13,    0
+ 25825,150183,20221024,  -31,    0
+ 25825,150183,20221025,  -40,    0
+ 25825,150183,20221026,  -18,    0
+ 25825,150183,20221027,  -38,    0
+ 25825,150183,20221028,  -22,    0
+ 25825,150183,20221029,   -7,    0
+ 25825,150183,20221030,  -25,    0
+ 25825,150183,20221031,    0,    0

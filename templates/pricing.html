@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Weather Data API</title>
+</head>
+<body>
+    <div class="flex h-screen flex-col items-center bg-gray-100">
+        <div class="w-full bg-gray-100 m-0">
+            <div class="max-w-6xl mx-auto px-4 flex justify-between">
+                <div class="flex space-x-4">
+                        <!-- logo -->
+                    <div>
+                        <a href="#" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
+                        <i class='bx bxl-medium-old mr-1 text-xl mb-1 text-blue-400'></i>
+                        <span class="font-bold">Hana Dev</span>
+                        </a>
+                    </div>
+                    <!-- primary nav -->
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="/" class="py-5 px-3 text-gray-700 hover:text-gray-900">Home</a>
+                        <a href="/api/v1/41/20000620" class="py-5 px-3 text-gray-700 hover:text-gray-900">Weather Data App</a>
+                        <a href="/contact/" class="py-5 px-3 text-gray-700 hover:text-gray-900">Contact</a>
+                        <a href="/pricing/" class="py-5 px-3 text-gray-700 hover:text-gray-900">Pricing</a>
+                        <a href="/features/" class="py-5 px-3 text-gray-700 hover:text-gray-900">Features</a>
+                    </div>
+                </div>
+                <!-- secondary nav -->
+                <div class="hidden md:flex items-center space-x-1">
+                <a href="" class="py-5 px-3">Login</a>
+                    <a href="" class="py-2 px-3 bg-yellow-400 text-white hover:bg-yellow-300 text-sm hover:text-yellow-800 rounded transition duration-300">Signup</a>
+                    </div>
+                    <!-- mobile button goes here -->
+                    <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button focus:outline-none">
+                        <i class='bx bx-menu text-3xl mt-1'></i>
+                    </button>
+                    </div>
+                </div>
+                <!-- mobile menu -->
+                <div class="mobile-menu hidden md:hidden">
+                    <a href="/" class="block py-2 px-4 text-sm hover:bg-gray-200">Home</a>
+                    <a href="/api/v1/41/20000620" class="py-5 px-3 text-gray-700 hover:text-gray-900">Weather Data App</a>
+                    <a href="/contact/" class="block py-2 px-4 text-sm hover:bg-gray-200">Contact</a>
+                    <a href="/pricing/" class="block py-2 px-4 text-sm hover:bg-gray-200">Pricing</a>
+                    <a href="/features/" class="block py-2 px-4 text-sm hover:bg-gray-200">Features</a>
+            </div>
+        </div>
+        <div class="px-4 py-2 m-2">
+            <h1 class="font-bold underline text-2xl">Weather Data API</h1>
+        </div>
+        <div class="px-4 py-2 m-2">
+            <div class=" w-50 h-50 max-w-xs max-h-xs">
+                <img class="" src="{{ url_for('static', filename='images/my_photo.jpg') }}" alt="my_photo">
+            </div>
+        </div>
+        <div class="px-4 py-2 m-2">
+            <p class="text-center">URL format:http://127.0.0.1:5000/api/v1/station/date</p>
+            <p class="text-center text-cyan-600">For one station for one date: <a href="http://127.0.0.1:5000/api/v1/10/18600105">http://127.0.0.1:5000/api/v1/10/18600105</a></p> 
+            <p class="text-center text-cyan-600">For one station for all dates: <a href="http://127.0.0.1:5000/api/v1/10">http://127.0.0.1:5000/api/v1/10</a></p>
+            <p class="text-center text-cyan-600">For one station for one year: <a href="http://127.0.0.1:5000/api/v1/annual/10/1980">http://127.0.0.1:5000/api/v1/annual/10/1980</a></p>
+        </div>
+        <div class="px-4 py-2 m-2">
+        </div>
+        <div class="px-4 py-2 m-2">
+        </div>
+        <div class="px-4 py-2 m-2">
+            <p>See below for station codes</p><br>
+            <table class="border table-auto">
+                <thead>
+                    <th>Index</th>
+                    <th>Station Name</th>
+                    <th>Station ID</th>
+                    <th>Url for Result</th>
+                </thead>
+                <tbody>
+                    {% for index, row in data.iterrows() %}
+                        <tr>
+                            <td>{{ index+1 }}</td>
+                            <td>{{ row['STANAME                                 '] }}</td>
+                            <td>{{ row['STAID'] }}</td>
+                            <td><a class="text-cyan-600" href="http://127.0.0.1:5000/api/v1/{{ row['STAID'] }}/20000209">http://127.0.0.1:5000/api/v1/{{ row['STAID'] }}/20000209</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
