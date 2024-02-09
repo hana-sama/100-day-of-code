@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Wine Testing App</title>
+</head>
+<div>
+    <div class="flex h-screen flex-col items-center bg-gray-100">
+        <h1 class="text-center text-3xl font-bold">Wine Tasting App</h1>
+        <div class="px-4 py-2 m-2">
+            <div class=" w-50 h-50 max-w-xs max-h-xs">
+                <img class="" src="{{ url_for('static', filename='images/kana_eve_9.jpg') }}" alt="my_photo">
+            </div>
+        </div>
+        <div class="px-4 py-2 m-2">
+            <p>Example format: http://127.0.0.1:5000/api/v1/brandname</p>
+            <p>Result for one wine brand: http://127.0.0.1:5000/api/v1/Brut</p>
+        </div>
+        <div class="px-4 py-2 m-2">
+            <p class="text-center">Followings are wines with a rating of 100 points from tasters</p><br>
+            <table class="border table-auto">
+                <thead>
+                    <th>Name</th>
+                    <th>Taster</th>
+                    <th>Points</th>
+                    <th>Description</th>
+                </thead>
+                <tbody>
+                    {% for index, row in data.iterrows() %}
+                        {% if row['points'] == 100 or row['points'] > 100: %}
+                            <tr>
+                                <td>{{ row['name'] }}</td>
+                                <td>{{ row['taster_name']}}</td>
+                                <td>{{ row['points'] }}</td>
+                                <td>{{ row['description'] }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+                </table>
+        </div>
+        <div class="px-4 py-2 m-2">
+            <p class="text-center">Following is the most expensive wine brand on our list</p>
+            <p>
+                {{ wine_name }} {{ expensive }}$
+            </p>
+        </div>
+    </div>
+</body>
+</html>
