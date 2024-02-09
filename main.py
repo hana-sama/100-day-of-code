@@ -1,20 +1,9 @@
-import requests
-import os
-from os.path import join, dirname
-from dotenv import load_dotenv
 from flask import Flask, render_template
 import pandas as pd
-import matplotlib
-from pathlib import Path
 import glob
 from dateutil.parser import parse
 path = './data/'
 all_files = glob.glob(path + '/*.txt')
-load_dotenv(verbose=True)
-
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
-RAPID_API_KEY = os.environ.get("RAPID_API_KEY")
 
 app = Flask(__name__)
 
