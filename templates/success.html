@@ -1,0 +1,20 @@
+<!-- success.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Success</title>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+     <div class="bg-green-200 border border-green-500 text-green-700 px-4 py-3 rounded-md shadow-md w-64 mx-auto" role="alert">
+        <strong class="font-bold">Success!</strong>
+        <span class="block">Your action was successful.</span>
+    </div>
+    <script>
+        // Show success toast
+        Flowbie.toast("Success", "Values sent successfully", "success");
+    </script>
+</body>
+</html>
