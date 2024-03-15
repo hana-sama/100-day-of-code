@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+{% block title %}
+Logout
+{% endblock %}
+{% block content %}
+
+<h1>Logout...</h1>
+<br/><br/>
+<div class="form-group">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Logout</button>
+    </form>
+</div>
+
+{% endblock %}
