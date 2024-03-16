@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Logout  
+{% endblock %}
+
+{% block content %}
+<h1>Register...</h1>
+<br><br>
+    <div class="form-group form-fluid">
+        <form action="{% url 'logout' %}" method="POST" class="w-100" name="logout">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <a class="btn btn-secondary" href="javascript:logout.submit()">Logout</a>
+        </form>
+    </div>
+{% endblock %}
+    
+    

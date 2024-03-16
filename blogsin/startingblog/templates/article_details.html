@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+{{ object.title_tag }}
+{% endblock %}
+    
+{% block content %}
+    <h1>{{ object.title }}...</h1>
+<small>By : {{ object.author.first_name }} {{ object.author.last_name }}</small>
+<hr>
+<br>
+    
+    {% if post.header_image %}
+        <img width="500" class="img-fluid .img-thumnail" src="{{ post.header_image.url }}">
+    {% endif %}
+    
+    {% if post.upload %}
+        <video width="500" src="{{ post.upload.url }}" controls></video>
+        
+    {% endif %}
+        
+        
+<br><br>
+<p>{{ object.body }}</p>
+<a class="btn btn-secondary" href="{% url 'home' %}">BACK</a>
+{% endblock %}
