@@ -11,11 +11,11 @@
 <hr>
 <br>
     
-    {% if post.header_image %}
+    {% if object.header_image %}
         <img width="500" class="img-fluid .img-thumnail" src="{{ post.header_image.url }}">
     {% endif %}
     
-    {% if post.upload %}
+    {% if object.upload %}
         <video width="500" src="{{ post.upload.url }}" controls></video>
         
     {% endif %}
@@ -24,4 +24,10 @@
 <br><br>
 <p>{{ object.body }}</p>
 <a class="btn btn-secondary" href="{% url 'home' %}">BACK</a>
+
+{% if user.is_authenticated %}
+    <a class="btn btn-primary" href="{% url 'update' object.pk %}">EDIT...?</a>
+    <a class="btn btn-danger" href="{% url 'delete' object.pk %}">DELETE...?</a>
+{% endif %}
+    
 {% endblock %}
