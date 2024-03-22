@@ -1,0 +1,4 @@
+fe8b5b603e637d89392703ae8e8ae59d7cf850a363b783a39421ce2a7488115d filter=lfs diff=lfs merge=lfs -text
+*.psd filter=lfs diff=lfs merge=lfs -text
+main.py filter=lfs diff=lfs merge=lfs -text
+*.deb filter=lfs diff=lfs merge=lfs -text
